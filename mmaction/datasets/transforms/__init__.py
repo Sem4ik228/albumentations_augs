@@ -16,7 +16,7 @@ from .pose_transforms import (DecompressPose, GeneratePoseTarget, GenSkeFeat,
                               ToMotion, UniformSampleFrames)
 from .processing import (CenterCrop, ColorJitter, Flip, Fuse, MultiScaleCrop,
                          RandomCrop, RandomRescale, RandomResizedCrop, Resize,
-                         TenCrop, ThreeCrop, RandomGrayWithCompression, RandomSunFlare, RandomSnow)
+                         TenCrop, ThreeCrop, RandomGrayWithCompression, RandomSunFlare, RandomSnow, PitchAndTwirl, Sparkles)
 from .text_transforms import CLIPTokenize
 from .wrappers import ImgAug, PytorchVideoWrapper, TorchVisionWrapper
 
@@ -37,5 +37,6 @@ __all__ = [
     'SampleAVAFrames', 'SampleFrames', 'TenCrop', 'ThreeCrop', 'ToMotion',
     'TorchVisionWrapper', 'Transpose', 'UniformSample', 'UniformSampleFrames',
     'UntrimmedSampleFrames', 'MMUniformSampleFrames', 'MMDecode', 'MMCompact',
-    'CLIPTokenize', 'RandomGrayWithCompression', "RandomSunFlare", "RandomSnow"
+    'CLIPTokenize', 'RandomGrayWithCompression', "RandomSunFlare", "RandomSnow",
+    "PitchAndTwirl", "Sparkles"
 ]
