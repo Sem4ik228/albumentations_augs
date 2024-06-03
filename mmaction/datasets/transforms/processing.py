@@ -1485,6 +1485,4 @@ class RandomSunFlare(BaseTransform):
         for i in range(results["num_clips"]):
             im = results['imgs'][i]
             results['imgs'][i] = pipeline(image=im)['image']
-            cv2.imshow("res", results['imgs'][i])
-            cv2.waitKey(0)
         return results
