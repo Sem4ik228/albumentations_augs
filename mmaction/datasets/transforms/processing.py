@@ -2,7 +2,7 @@
 import random
 import warnings
 from numbers import Number
-from typing import Sequence
+from typing import Dict, Sequence, Tuple
 import albumentations as A
 
 import cv2
@@ -1483,6 +1483,22 @@ class RandomSunFlare(BaseTransform):
                                               src_color=random.choice(self.src_colors))
         pipeline = A.Compose([image_sunflare])
         for i in range(results["num_clips"]):
+            im = results['imgs'][i]
+            results['imgs'][i] = pipeline(image=im)['image']
+        return results
+    
+@TRANSFORMS.register_module()
+class RandomSnow(BaseTransform):
+    def __init__(self, snow_point_lower=0.1, snow_point_upper=0.3, brightness_coeff=(0.5, 2.5), p=0.5):
+        self.snow_point_lower = snow_point_lower
+        self.snow_point_upper = snow_point_upper
+        self.brightness_coeff = brightness_coeff
+        self.p = p
+    def transform(self, results):
+        brightness = (random.random() * (self.brightness_coeff[1] - self.brightness_coeff[0])) + self.brightness_coeff[0]
+        image_snow = A.RandomSnow(snow_point_range=(self.snow_point_lower, self.snow_point_upper), brightness_coeff=brightness, p=self.p)
+        pipeline = A.Compose([image_snow])
+        for i in range(results['num_clips']):
             im = results['imgs'][i]
             results['imgs'][i] = pipeline(image=im)['image']
         return results
