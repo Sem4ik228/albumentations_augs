@@ -1641,3 +1641,60 @@ class Sparkles(BaseTransform):
             results['imgs'][i] = self.transform_one_image(im, self.centers, self.radii, self.nrays, self.amounts, self.color, self.randomness, self.seed)
         return results
         
+@TRANSFORMS.register_module()
+class InverseSparkles(BaseTransform):
+    
+    def __init__(self, severity=(1.0, 10.0), p=0.5, color=[[255, 255, 255], [0, 0, 0]]):
+        self.severity = severity
+        self.p = p
+        self.color_choice = color
+    
+    def sample_parameters(self):
+        severity = (random.random() * (self.severity[1] - self.severity[0])) + self.severity[0] 
+        self.center = np.random.uniform(low=0.25, high=0.75, size=2) * self.im_size
+        self.radius = 0.25 * self.im_size
+        self.amount = 100
+        self.amount = float_parameter(severity, 65)
+        self.amount = 100 - self.amount
+        self.color = np.array(random.choice(self.color_choice))
+        self.randomness = 25
+        self.seed = np.random.randint(low=0, high=2**16)
+        self.rays = np.random.randint(low=50, high=200)
+        
+    def transform_one_image(self, image, center, radius, rays, amount, color, randomness, seed):
+        def kernel(point, value, center, radius, ray_lengths, amount, color):
+            rays = len(ray_lengths)
+            dp = point - center
+            dist = np.linalg.norm(dp)
+            angle = np.arctan2(dp[1], dp[0])
+            d = (angle + np.pi) / (2 * np.pi) * rays
+            i = int(d)
+            f = d - i 
+
+            if radius != 0:
+                length = ray_lengths[i % rays] + f * (ray_lengths[(i+1) % rays] - ray_lengths[i % rays])
+                g = length**2 / (dist**2 + 1e-4)
+                g = g ** ((100 - amount) / 50.0)
+                f -= 0.5
+                f = 1 - f**2
+                f *= g
+            f = np.clip(f, 0, 1)
+            return color + f * (value - color)
+
+        random_state = np.random.RandomState(seed=seed)
+        ray_lengths = [radius + randomness / 100.0 * radius * random_state.randn()\
+                for i in range(rays)]
+
+        out = np.array([[kernel(np.array([y,x]), image[y,x,:].astype(np.float32), center, radius, ray_lengths, amount, color)\
+                for x in range(self.im_size)] for y in range(self.im_size)])
+
+        return np.clip(out, 0, 255).astype(np.uint8)
+    
+    def transform(self, results: Dict):
+        self.im_size = results["img_shape"][0]
+        self.sample_parameters()
+        for i in range(results['num_clips']):
+            if random.random() > self.p:
+                continue
+            im = results['imgs'][i]
+            results['imgs'][i] = self.transform_one_image(im, self.center, self.radius, self.rays, self.amount, self.color, self.randomness, self.seed)
