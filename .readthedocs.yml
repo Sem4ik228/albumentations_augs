@@ -1,15 +1,14 @@
 version: 2
 
-sphinx:
-  configuration: docs/conf.py
+build:
+  os: ubuntu-22.04
+  tools:
+    python: "3.9"
 
 formats:
-  - htmlzip
-  - pdf
-  - epub
+    - epub
 
 python:
-  version: 3.8
-  system_packages: true
   install:
-    - requirements: docs/requirements.txt
+    - requirements: requirements/docs.txt
+    - requirements: requirements/readthedocs.txt

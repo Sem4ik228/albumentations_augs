@@ -1,7 +1,4 @@
-include LICENSE
-include README.md
-
-prune docs/_build
-global-exclude docs/augs_overview/*/images/*.jpg
-
-global-exclude *.py[co] .DS_Store
+include mmaction/.mim/model-index.yml
+include mmaction/.mim/dataset-index.yml
+recursive-include mmaction/.mim/configs *.py *.yml
+recursive-include mmaction/.mim/tools *.sh *.py

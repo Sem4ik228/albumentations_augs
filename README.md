@@ -1,365 +1,387 @@
-# Albumentations
+<div align="center">
+  <img src="https://github.com/open-mmlab/mmaction2/raw/main/resources/mmaction2_logo.png" width="600"/>
+  <div>&nbsp;</div>
+  <div align="center">
+    <b><font size="5">OpenMMLab website</font></b>
+    <sup>
+      <a href="https://openmmlab.com">
+        <i><font size="4">HOT</font></i>
+      </a>
+    </sup>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <b><font size="5">OpenMMLab platform</font></b>
+    <sup>
+      <a href="https://platform.openmmlab.com">
+        <i><font size="4">TRY IT OUT</font></i>
+      </a>
+    </sup>
+  </div>
 
-[![PyPI version](https://badge.fury.io/py/albumentations.svg)](https://badge.fury.io/py/albumentations)
-![CI](https://github.com/albumentations-team/albumentations/workflows/CI/badge.svg)
-[![PyPI Downloads](https://img.shields.io/pypi/dm/albumentations.svg?label=PyPI%20downloads)](
-https://pypi.org/project/albumentations/)
-[![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/albumentations.svg?label=Conda%20downloads)](
-https://anaconda.org/conda-forge/albumentations)
-[![Stack Overflow](https://img.shields.io/badge/stackoverflow-Ask%20questions-blue.svg)](
-https://stackoverflow.com/questions/tagged/albumentations)
-[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+[![Documentation](https://readthedocs.org/projects/mmaction2/badge/?version=latest)](https://mmaction2.readthedocs.io/en/latest/)
+[![actions](https://github.com/open-mmlab/mmaction2/workflows/build/badge.svg)](https://github.com/open-mmlab/mmaction2/actions)
+[![codecov](https://codecov.io/gh/open-mmlab/mmaction2/branch/main/graph/badge.svg)](https://codecov.io/gh/open-mmlab/mmaction2)
+[![PyPI](https://img.shields.io/pypi/v/mmaction2)](https://pypi.org/project/mmaction2/)
+[![LICENSE](https://img.shields.io/github/license/open-mmlab/mmaction2.svg)](https://github.com/open-mmlab/mmaction2/blob/main/LICENSE)
+[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/open-mmlab/mmaction2.svg)](https://github.com/open-mmlab/mmaction2/issues)
+[![Percentage of issues still open](https://isitmaintained.com/badge/open/open-mmlab/mmaction2.svg)](https://github.com/open-mmlab/mmaction2/issues)
 
-[Docs](https://albumentations.ai/docs/) | [Discord](https://discord.gg/AKPrrDYNAt) | [Twitter](https://twitter.com/albumentations) | [LinkedIn](https://www.linkedin.com/company/100504475/)
+[📘Documentation](https://mmaction2.readthedocs.io/en/latest/) |
+[🛠️Installation](https://mmaction2.readthedocs.io/en/latest/get_started/installation.html) |
+[👀Model Zoo](https://mmaction2.readthedocs.io/en/latest/modelzoo_statistics.html) |
+[🆕Update News](https://mmaction2.readthedocs.io/en/latest/notes/changelog.html) |
+[🚀Ongoing Projects](https://github.com/open-mmlab/mmaction2/projects) |
+[🤔Reporting Issues](https://github.com/open-mmlab/mmaction2/issues/new/choose)
 
-Albumentations is a Python library for image augmentation. Image augmentation is used in deep learning and computer vision tasks to increase the quality of trained models. The purpose of image augmentation is to create new training samples from the existing data.
+</div>
 
-Here is an example of how you can apply some [pixel-level](#pixel-level-transforms) augmentations from Albumentations to create new images from the original one:
-![parrot](https://habrastorage.org/webt/bd/ne/rv/bdnerv5ctkudmsaznhw4crsdfiw.jpeg)
+<div align="center">
+  <a href="https://openmmlab.medium.com/" style="text-decoration:none;">
+    <img src="https://user-images.githubusercontent.com/25839884/219255827-67c1a27f-f8c5-46a9-811d-5e57448c61d1.png" width="3%" alt="" /></a>
+  <img src="https://user-images.githubusercontent.com/25839884/218346358-56cc8e2f-a2b8-487f-9088-32480cceabcf.png" width="3%" alt="" />
+  <a href="https://discord.com/channels/1037617289144569886/1046608014234370059" style="text-decoration:none;">
+    <img src="https://user-images.githubusercontent.com/25839884/218347213-c080267f-cbb6-443e-8532-8e1ed9a58ea9.png" width="3%" alt="" /></a>
+  <img src="https://user-images.githubusercontent.com/25839884/218346358-56cc8e2f-a2b8-487f-9088-32480cceabcf.png" width="3%" alt="" />
+  <a href="https://twitter.com/OpenMMLab" style="text-decoration:none;">
+    <img src="https://user-images.githubusercontent.com/25839884/218346637-d30c8a0f-3eba-4699-8131-512fb06d46db.png" width="3%" alt="" /></a>
+  <img src="https://user-images.githubusercontent.com/25839884/218346358-56cc8e2f-a2b8-487f-9088-32480cceabcf.png" width="3%" alt="" />
+  <a href="https://www.youtube.com/openmmlab" style="text-decoration:none;">
+    <img src="https://user-images.githubusercontent.com/25839884/218346691-ceb2116a-465a-40af-8424-9f30d2348ca9.png" width="3%" alt="" /></a>
+  <img src="https://user-images.githubusercontent.com/25839884/218346358-56cc8e2f-a2b8-487f-9088-32480cceabcf.png" width="3%" alt="" />
+  <a href="https://space.bilibili.com/1293512903" style="text-decoration:none;">
+    <img src="https://user-images.githubusercontent.com/25839884/219026751-d7d14cce-a7c9-4e82-9942-8375fca65b99.png" width="3%" alt="" /></a>
+  <img src="https://user-images.githubusercontent.com/25839884/218346358-56cc8e2f-a2b8-487f-9088-32480cceabcf.png" width="3%" alt="" />
+  <a href="https://www.zhihu.com/people/openmmlab" style="text-decoration:none;">
+    <img src="https://user-images.githubusercontent.com/25839884/219026120-ba71e48b-6e94-4bd4-b4e9-b7d175b5e362.png" width="3%" alt="" /></a>
+</div>
 
-## Why Albumentations
+English | [简体中文](/README_zh-CN.md)
 
-- Albumentations **[supports all common computer vision tasks](#i-want-to-use-albumentations-for-the-specific-task-such-as-classification-or-segmentation)** such as classification, semantic segmentation, instance segmentation, object detection, and pose estimation.
-- The library provides **[a simple unified API](#a-simple-example)** to work with all data types: images (RBG-images, grayscale images, multispectral images), segmentation masks, bounding boxes, and keypoints.
-- The library contains **[more than 70 different augmentations](#list-of-augmentations)** to generate new training samples from the existing data.
-- Albumentations is [**fast**](#benchmarking-results). We benchmark each new release to ensure that augmentations provide maximum speed.
-- It **[works with popular deep learning frameworks](#i-want-to-know-how-to-use-albumentations-with-deep-learning-frameworks)** such as PyTorch and TensorFlow. By the way, Albumentations is a part of the [PyTorch ecosystem](https://pytorch.org/ecosystem/).
-- [**Written by experts**](#authors). The authors have experience both working on production computer vision systems and participating in competitive machine learning. Many core team members are Kaggle Masters and Grandmasters.
-- The library is [**widely used**](#who-is-using-albumentations) in industry, deep learning research, machine learning competitions, and open source projects.
+## 📄 Table of Contents
 
-## Sponsors
+- [📄 Table of Contents](#-table-of-contents)
+- [🥳 🚀 What's New](#--whats-new-)
+- [📖 Introduction](#-introduction-)
+- [🎁 Major Features](#-major-features-)
+- [🛠️ Installation](#️-installation-)
+- [👀 Model Zoo](#-model-zoo-)
+- [👨‍🏫 Get Started](#-get-started-)
+- [🎫 License](#-license-)
+- [🖊️ Citation](#️-citation-)
+- [🙌 Contributing](#-contributing-)
+- [🤝 Acknowledgement](#-acknowledgement-)
+- [🏗️ Projects in OpenMMLab](#️-projects-in-openmmlab-)
 
-<a href="https://roboflow.com/" target="_blank"><img src="https://avatars.githubusercontent.com/u/53104118?s=200&v=4" width="100"/></a>
+## 🥳 🚀 What's New [🔝](#-table-of-contents)
 
-## Table of contents
+**The default branch has been switched to `main`(previous `1.x`) from `master`(current `0.x`), and we encourage users to migrate to the latest version with more supported models, stronger pre-training checkpoints and simpler coding. Please refer to [Migration Guide](https://mmaction2.readthedocs.io/en/latest/migration.html) for more details.**
 
-- [Albumentations](#albumentations)
-  - [Why Albumentations](#why-albumentations)
-  - [Sponsors](#sponsors)
-  - [Table of contents](#table-of-contents)
-  - [Authors](#authors)
-  - [Installation](#installation)
-  - [Documentation](#documentation)
-  - [A simple example](#a-simple-example)
-  - [Getting started](#getting-started)
-    - [I am new to image augmentation](#i-am-new-to-image-augmentation)
-    - [I want to use Albumentations for the specific task such as classification or segmentation](#i-want-to-use-albumentations-for-the-specific-task-such-as-classification-or-segmentation)
-    - [I want to know how to use Albumentations with deep learning frameworks](#i-want-to-know-how-to-use-albumentations-with-deep-learning-frameworks)
-    - [I want to explore augmentations and see Albumentations in action](#i-want-to-explore-augmentations-and-see-albumentations-in-action)
-  - [Who is using Albumentations](#who-is-using-albumentations)
-    - [See also](#see-also)
-  - [List of augmentations](#list-of-augmentations)
-    - [Pixel-level transforms](#pixel-level-transforms)
-    - [Spatial-level transforms](#spatial-level-transforms)
-    - [Mixing-level transforms](#mixing-level-transforms)
-  - [A few more examples of **augmentations**](#a-few-more-examples-of-augmentations)
-    - [Semantic segmentation on the Inria dataset](#semantic-segmentation-on-the-inria-dataset)
-    - [Medical imaging](#medical-imaging)
-    - [Object detection and semantic segmentation on the Mapillary Vistas dataset](#object-detection-and-semantic-segmentation-on-the-mapillary-vistas-dataset)
-    - [Keypoints augmentation](#keypoints-augmentation)
-  - [Benchmarking results](#benchmarking-results)
-  - [Contributing](#contributing)
-  - [Community and Support](#community-and-support)
-  - [Comments](#comments)
-  - [Citing](#citing)
+**Release (2023.10.12)**: v1.2.0 with the following new features:
 
-## Authors
+- Support VindLU multi-modality algorithm and the Training of ActionClip
+- Support lightweight model MobileOne TSN/TSM
+- Support video retrieval dataset MSVD
+- Support SlowOnly K700 feature to train localization models
+- Support Video and Audio Demos
 
-[**Vladimir I. Iglovikov**](https://www.linkedin.com/in/iglovikov/) | [Kaggle Grandmaster](https://www.kaggle.com/iglovikov)
+## 📖 Introduction [🔝](#-table-of-contents)
 
-[**Mikhail Druzhinin**](https://www.linkedin.com/in/mikhail-druzhinin-548229100/) | [Kaggle Expert](https://www.kaggle.com/dipetm)
+MMAction2 is an open-source toolbox for video understanding based on PyTorch.
+It is a part of the [OpenMMLab](http://openmmlab.com/) project.
 
-[**Alex Parinov**](https://www.linkedin.com/in/alex-parinov/) | [Kaggle Master](https://www.kaggle.com/creafz)
+<div align="center">
+  <img src="https://github.com/open-mmlab/mmaction2/raw/main/resources/mmaction2_overview.gif" width="380px">
+  <img src="https://user-images.githubusercontent.com/34324155/123989146-2ecae680-d9fb-11eb-916b-b9db5563a9e5.gif" width="380px">
+  <p style="font-size:1.5vw;"> Action Recognition on Kinetics-400 (left) and Skeleton-based Action Recognition on NTU-RGB+D-120 (right)</p>
+</div>
 
-[**Alexander Buslaev** — Computer Vision Engineer at Mapbox](https://www.linkedin.com/in/al-buslaev/) | [Kaggle Master](https://www.kaggle.com/albuslaev)
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/30782254/155710881-bb26863e-fcb4-458e-b0c4-33cd79f96901.gif" width="580px"/><br>
+    <p style="font-size:1.5vw;">Skeleton-based Spatio-Temporal Action Detection and Action Recognition Results on Kinetics-400</p>
+</div>
+<div align="center">
+  <img src="https://github.com/open-mmlab/mmaction2/raw/main/resources/spatio-temporal-det.gif" width="800px"/><br>
+    <p style="font-size:1.5vw;">Spatio-Temporal Action Detection Results on AVA-2.1</p>
+</div>
 
-[**Evegene Khvedchenya** — Computer Vision Research Engineer at Piñata Farms](https://www.linkedin.com/in/cvtalks/) | [Kaggle Grandmaster](https://www.kaggle.com/bloodaxe)
+## 🎁 Major Features [🔝](#-table-of-contents)
 
-## Installation
+- **Modular design**: We decompose a video understanding framework into different components. One can easily construct a customized video understanding framework by combining different modules.
 
-Albumentations requires Python 3.8 or higher. To install the latest version from PyPI:
+- **Support five major video understanding tasks**: MMAction2 implements various algorithms for multiple video understanding tasks, including action recognition, action localization, spatio-temporal action detection, skeleton-based action detection and video retrieval.
 
-```bash
-pip install -U albumentations
+- **Well tested and documented**: We provide detailed documentation and API reference, as well as unit tests.
+
+## 🛠️ Installation [🔝](#-table-of-contents)
+
+MMAction2 depends on [PyTorch](https://pytorch.org/), [MMCV](https://github.com/open-mmlab/mmcv), [MMEngine](https://github.com/open-mmlab/mmengine), [MMDetection](https://github.com/open-mmlab/mmdetection) (optional) and [MMPose](https://github.com/open-mmlab/mmpose) (optional).
+
+Please refer to [install.md](https://mmaction2.readthedocs.io/en/latest/get_started/installation.html) for detailed instructions.
+
+<details close>
+<summary>Quick instructions</summary>
+
+```shell
+conda create --name openmmlab python=3.8 -y
+conda activate openmmlab
+conda install pytorch torchvision -c pytorch  # This command will automatically install the latest version PyTorch and cudatoolkit, please check whether they match your environment.
+pip install -U openmim
+mim install mmengine
+mim install mmcv
+mim install mmdet  # optional
+mim install mmpose  # optional
+git clone https://github.com/open-mmlab/mmaction2.git
+cd mmaction2
+pip install -v -e .
 ```
 
-Other installation options are described in the [documentation](https://albumentations.ai/docs/getting_started/installation/).
+</details>
 
-## Documentation
+## 👀 Model Zoo [🔝](#-table-of-contents)
 
-The full documentation is available at **[https://albumentations.ai/docs/](https://albumentations.ai/docs/)**.
+Results and models are available in the [model zoo](https://mmaction2.readthedocs.io/en/latest/model_zoo/modelzoo.html).
 
-## A simple example
+<details close>
 
-```python
-import albumentations as A
-import cv2
+<summary>Supported model</summary>
 
-# Declare an augmentation pipeline
-transform = A.Compose([
-    A.RandomCrop(width=256, height=256),
-    A.HorizontalFlip(p=0.5),
-    A.RandomBrightnessContrast(p=0.2),
-])
+<table style="margin-left:auto;margin-right:auto;font-size:1.3vw;padding:3px 5px;text-align:center;vertical-align:center;">
+  <tr>
+    <td colspan="5" style="font-weight:bold;">Action Recognition</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/c3d/README.md">C3D</a> (CVPR'2014)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/tsn/README.md">TSN</a> (ECCV'2016)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/i3d/README.md">I3D</a> (CVPR'2017)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/c2d/README.md">C2D</a> (CVPR'2018)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/i3d/README.md">I3D Non-Local</a> (CVPR'2018)</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/r2plus1d/README.md">R(2+1)D</a> (CVPR'2018)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/trn/README.md">TRN</a> (ECCV'2018)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/tsm/README.md">TSM</a> (ICCV'2019)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/tsm/README.md">TSM Non-Local</a> (ICCV'2019)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/slowonly/README.md">SlowOnly</a> (ICCV'2019)</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/slowfast/README.md">SlowFast</a> (ICCV'2019)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/csn/README.md">CSN</a> (ICCV'2019)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/tin/README.md">TIN</a> (AAAI'2020)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/tpn/README.md">TPN</a> (CVPR'2020)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/x3d/README.md">X3D</a> (CVPR'2020)</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition_audio/resnet/README.md">MultiModality: Audio</a> (ArXiv'2020)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/tanet/README.md">TANet</a> (ArXiv'2020)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/timesformer/README.md">TimeSformer</a> (ICML'2021)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/projects/actionclip/README.md">ActionCLIP</a> (ArXiv'2021)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/swin/README.md">VideoSwin</a> (CVPR'2022)</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/videomae/README.md">VideoMAE</a> (NeurIPS'2022)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/mvit/README.md">MViT V2</a> (CVPR'2022)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/uniformer/README.md">UniFormer V1</a> (ICLR'2022)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/uniformerv2/README.md">UniFormer V2</a> (Arxiv'2022)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/videomaev2/README.md">VideoMAE V2</a> (CVPR'2023)</td>
+  </tr>
+  <tr>
+    <td colspan="5" style="font-weight:bold;">Action Localization</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/localization/bsn/README.md">BSN</a> (ECCV'2018)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/localization/bmn/README.md">BMN</a> (ICCV'2019)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/localization/tcanet/README.md">TCANet</a> (CVPR'2021)</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="5" style="font-weight:bold;">Spatio-Temporal Action Detection</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/detection/acrn/README.md">ACRN</a> (ECCV'2018)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/detection/slowonly/README.md">SlowOnly+Fast R-CNN</a> (ICCV'2019)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/detection/slowfast/README.md">SlowFast+Fast R-CNN</a> (ICCV'2019)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/detection/lfb/README.md">LFB</a> (CVPR'2019)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/recognition/videomae/README.md">VideoMAE</a> (NeurIPS'2022)</td>
+  </tr>
+  <tr>
+    <td colspan="5" style="font-weight:bold;">Skeleton-based Action Recognition</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/skeleton/stgcn/README.md">ST-GCN</a> (AAAI'2018)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/skeleton/2s-agcn/README.md">2s-AGCN</a> (CVPR'2019)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/skeleton/posec3d/README.md">PoseC3D</a> (CVPR'2022)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/skeleton/stgcnpp/README.md">STGCN++</a> (ArXiv'2022)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/projects/ctrgcn/README.md">CTRGCN</a> (CVPR'2021)</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/projects/msg3d/README.md">MSG3D</a> (CVPR'2020)</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="5" style="font-weight:bold;">Video Retrieval</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/configs/retrieval/clip4clip/README.md">CLIP4Clip</a> (ArXiv'2022)</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
 
-# Read an image with OpenCV and convert it to the RGB colorspace
-image = cv2.imread("image.jpg")
-image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+</table>
 
-# Augment an image
-transformed = transform(image=image)
-transformed_image = transformed["image"]
-```
+</details>
 
-## Getting started
+<details close>
 
-### I am new to image augmentation
+<summary>Supported dataset</summary>
 
-Please start with the [introduction articles](https://albumentations.ai/docs/#introduction-to-image-augmentation) about why image augmentation is important and how it helps to build better models.
+<table style="margin-left:auto;margin-right:auto;font-size:1.3vw;padding:3px 5px;text-align:center;vertical-align:center;">
+  <tr>
+    <td colspan="4" style="font-weight:bold;">Action Recognition</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/hmdb51/README.md">HMDB51</a> (<a href="https://serre-lab.clps.brown.edu/resource/hmdb-a-large-human-motion-database/">Homepage</a>) (ICCV'2011)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/ucf101/README.md">UCF101</a> (<a href="https://www.crcv.ucf.edu/research/data-sets/ucf101/">Homepage</a>) (CRCV-IR-12-01)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/activitynet/README.md">ActivityNet</a> (<a href="http://activity-net.org/">Homepage</a>) (CVPR'2015)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/kinetics/README.md">Kinetics-[400/600/700]</a> (<a href="https://deepmind.com/research/open-source/kinetics/">Homepage</a>) (CVPR'2017)</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/sthv1/README.md">SthV1</a>  (ICCV'2017)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/sthv2/README.md">SthV2</a> (<a href="https://developer.qualcomm.com/software/ai-datasets/something-something">Homepage</a>) (ICCV'2017)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/diving48/README.md">Diving48</a> (<a href="http://www.svcl.ucsd.edu/projects/resound/dataset.html">Homepage</a>) (ECCV'2018)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/jester/README.md">Jester</a> (<a href="https://developer.qualcomm.com/software/ai-datasets/jester">Homepage</a>) (ICCV'2019)</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/mit/README.md">Moments in Time</a> (<a href="http://moments.csail.mit.edu/">Homepage</a>) (TPAMI'2019)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/mmit/README.md">Multi-Moments in Time</a> (<a href="http://moments.csail.mit.edu/challenge_iccv_2019.html">Homepage</a>) (ArXiv'2019)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/hvu/README.md">HVU</a> (<a href="https://github.com/holistic-video-understanding/HVU-Dataset">Homepage</a>) (ECCV'2020)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/omnisource/README.md">OmniSource</a> (<a href="https://kennymckormick.github.io/omnisource/">Homepage</a>) (ECCV'2020)</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/gym/README.md">FineGYM</a> (<a href="https://sdolivia.github.io/FineGym/">Homepage</a>) (CVPR'2020)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/kinetics710/README.md">Kinetics-710</a> (<a href="https://arxiv.org/pdf/2211.09552.pdf">Homepage</a>) (Arxiv'2022)</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="4" style="font-weight:bold;">Action Localization</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/thumos14/README.md">THUMOS14</a> (<a href="https://www.crcv.ucf.edu/THUMOS14/download.html">Homepage</a>) (THUMOS Challenge 2014)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/activitynet/README.md">ActivityNet</a> (<a href="http://activity-net.org/">Homepage</a>) (CVPR'2015)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/hacs/README.md">HACS</a> (<a href="https://github.com/hangzhaomit/HACS-dataset">Homepage</a>) (ICCV'2019)</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="4" style="font-weight:bold;">Spatio-Temporal Action Detection</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/ucf101_24/README.md">UCF101-24*</a> (<a href="http://www.thumos.info/download.html">Homepage</a>) (CRCV-IR-12-01)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/jhmdb/README.md">JHMDB*</a> (<a href="http://jhmdb.is.tue.mpg.de/">Homepage</a>) (ICCV'2015)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/ava/README.md">AVA</a> (<a href="https://research.google.com/ava/index.html">Homepage</a>) (CVPR'2018)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/ava_kinetics/README.md">AVA-Kinetics</a> (<a href="https://research.google.com/ava/index.html">Homepage</a>) (Arxiv'2020)</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/multisports/README.md">MultiSports</a> (<a href="https://deeperaction.github.io/datasets/multisports.html">Homepage</a>) (ICCV'2021)</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="4" style="font-weight:bold;">Skeleton-based Action Recognition</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/skeleton/README.md">PoseC3D-FineGYM</a> (<a href="https://kennymckormick.github.io/posec3d/">Homepage</a>) (ArXiv'2021)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/skeleton/README.md">PoseC3D-NTURGB+D</a> (<a href="https://kennymckormick.github.io/posec3d/">Homepage</a>) (ArXiv'2021)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/skeleton/README.md">PoseC3D-UCF101</a> (<a href="https://kennymckormick.github.io/posec3d/">Homepage</a>) (ArXiv'2021)</td>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/skeleton/README.md">PoseC3D-HMDB51</a> (<a href="https://kennymckormick.github.io/posec3d/">Homepage</a>) (ArXiv'2021)</td>
+  </tr>
+  <tr>
+    <td colspan="4" style="font-weight:bold;">Video Retrieval</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/open-mmlab/mmaction2/blob/main/tools/data/video_retrieval/README.md">MSRVTT</a> (<a href="https://www.microsoft.com/en-us/research/publication/msr-vtt-a-large-video-description-dataset-for-bridging-video-and-language/">Homepage</a>) (CVPR'2016)</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
 
-### I want to use Albumentations for the specific task such as classification or segmentation
+</table>
 
-If you want to use Albumentations for a specific task such as classification, segmentation, or object detection, refer to the [set of articles](https://albumentations.ai/docs/#getting-started-with-albumentations) that has an in-depth description of this task. We also have a [list of examples](https://albumentations.ai/docs/examples/) on applying Albumentations for different use cases.
+</details>
 
-### I want to know how to use Albumentations with deep learning frameworks
+## 👨‍🏫 Get Started [🔝](#-table-of-contents)
 
-We have [examples of using Albumentations](https://albumentations.ai/docs/#examples-of-how-to-use-albumentations-with-different-deep-learning-frameworks) along with PyTorch and TensorFlow.
+For tutorials, we provide the following user guides for basic usage:
 
-### I want to explore augmentations and see Albumentations in action
+- [Migration from MMAction2 0.X](https://mmaction2.readthedocs.io/en/latest/migration.html)
+- [Learn about Configs](https://mmaction2.readthedocs.io/en/latest/user_guides/config.html)
+- [Prepare Datasets](https://mmaction2.readthedocs.io/en/latest/user_guides/prepare_dataset.html)
+- [Inference with Existing Models](https://mmaction2.readthedocs.io/en/latest/user_guides/inference.html)
+- [Training and Testing](https://mmaction2.readthedocs.io/en/latest/user_guides/train_test.html)
 
-Check the [online demo of the library](https://albumentations-demo.herokuapp.com/). With it, you can apply augmentations to different images and see the result. Also, we have a [list of all available augmentations and their targets](#list-of-augmentations).
+<details close>
+<summary>Research works built on MMAction2 by users from community</summary>
 
-## Who is using Albumentations
+- Video Swin Transformer. [\[paper\]](https://arxiv.org/abs/2106.13230)[\[github\]](https://github.com/SwinTransformer/Video-Swin-Transformer)
+- Evidential Deep Learning for Open Set Action Recognition, ICCV 2021 **Oral**. [\[paper\]](https://arxiv.org/abs/2107.10161)[\[github\]](https://github.com/Cogito2012/DEAR)
+- Rethinking Self-supervised Correspondence Learning: A Video Frame-level Similarity Perspective, ICCV 2021 **Oral**. [\[paper\]](https://arxiv.org/abs/2103.17263)[\[github\]](https://github.com/xvjiarui/VFS)
 
-<a href="https://www.apple.com/" target="_blank"><img src="https://raw.githubusercontent.com/albumentations-team/albumentations.ai/main/html/assets/img/industry/apple.jpeg" width="100"/></a>
-<a href="https://research.google/" target="_blank"><img src="https://raw.githubusercontent.com/albumentations-team/albumentations.ai/main/html/assets/img/industry/google.png" width="100"/></a>
-<a href="https://opensource.fb.com/" target="_blank"><img src="https://raw.githubusercontent.com/albumentations-team/albumentations.ai/main/html/assets/img/industry/meta_research.png" width="100"/></a>
-<a href="https: //www.nvidia.com/en-us/research/" target="_blank"><img src="https://raw.githubusercontent.com/albumentations-team/albumentations.ai/main/html/assets/img/industry/nvidia_research.jpeg" width="100"/></a>
-<a href="https://www.amazon.science/" target="_blank"><img src="https://raw.githubusercontent.com/albumentations-team/albumentations.ai/main/html/assets/img/industry/amazon_science.png" width="100"/></a>
-<a href="https://opensource.microsoft.com/" target="_blank"><img src="https://raw.githubusercontent.com/albumentations-team/albumentations.ai/main/html/assets/img/industry/microsoft.png" width="100"/></a>
-<a href="https://engineering.salesforce.com/open-source/" target="_blank"><img src="https://raw.githubusercontent.com/albumentations-team/albumentations.ai/main/html/assets/img/industry/salesforce_open_source.png" width="100"/></a>
-<a href="https://stability.ai/" target="_blank"><img src="https://raw.githubusercontent.com/albumentations-team/albumentations.ai/main/html/assets/img/industry/stability.png" width="100"/></a>
-<a href="https://www.ibm.com/opensource/" target="_blank"><img src="https://raw.githubusercontent.com/albumentations-team/albumentations.ai/main/html/assets/img/industry/ibm.jpeg" width="100"/></a>
-<a href="https://huggingface.co/" target="_blank"><img src="https://raw.githubusercontent.com/albumentations-team/albumentations.ai/main/html/assets/img/industry/hugging_face.png" width="100"/></a>
-<a href="https://www.sony.com/en/" target="_blank"><img src="https://raw.githubusercontent.com/albumentations-team/albumentations.ai/main/html/assets/img/industry/sony.png" width="100"/></a>
-<a href="https://opensource.alibaba.com/" target="_blank"><img src="https://raw.githubusercontent.com/albumentations-team/albumentations.ai/main/html/assets/img/industry/alibaba.png" width="100"/></a>
-<a href="https://opensource.tencent.com/" target="_blank"><img src="https://raw.githubusercontent.com/albumentations-team/albumentations.ai/main/html/assets/img/industry/tencent.png" width="100"/></a>
-<a href="https://h2o.ai/" target="_blank"><img src="https://raw.githubusercontent.com/albumentations-team/albumentations.ai/main/html/assets/img/industry/h2o_ai.png" width="100"/></a>
+</details>
 
-### See also
+## 🎫 License [🔝](#-table-of-contents)
 
-- [A list of papers that cite Albumentations](https://scholar.google.com/citations?view_op=view_citation&citation_for_view=vkjh9X0AAAAJ:r0BpntZqJG4C).
-- [A list of teams that were using Albumentations and took high places in machine learning competitions](https://albumentations.ai/whos_using#competitions).
-- [Open source projects that use Albumentations](https://github.com/albumentations-team/albumentations/network/dependents?dependent_type=PACKAGE).
+This project is released under the [Apache 2.0 license](LICENSE).
 
-## List of augmentations
+## 🖊️ Citation [🔝](#-table-of-contents)
 
-### Pixel-level transforms
+If you find this project useful in your research, please consider cite:
 
-Pixel-level transforms will change just an input image and will leave any additional targets such as masks, bounding boxes, and keypoints unchanged. The list of pixel-level transforms:
-
-- [AdvancedBlur](https://albumentations.ai/docs/api_reference/augmentations/blur/transforms/#albumentations.augmentations.blur.transforms.AdvancedBlur)
-- [Blur](https://albumentations.ai/docs/api_reference/augmentations/blur/transforms/#albumentations.augmentations.blur.transforms.Blur)
-- [CLAHE](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.CLAHE)
-- [ChannelDropout](https://albumentations.ai/docs/api_reference/augmentations/dropout/channel_dropout/#albumentations.augmentations.dropout.channel_dropout.ChannelDropout)
-- [ChannelShuffle](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.ChannelShuffle)
-- [ChromaticAberration](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.ChromaticAberration)
-- [ColorJitter](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.ColorJitter)
-- [Defocus](https://albumentations.ai/docs/api_reference/augmentations/blur/transforms/#albumentations.augmentations.blur.transforms.Defocus)
-- [Downscale](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.Downscale)
-- [Emboss](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.Emboss)
-- [Equalize](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.Equalize)
-- [FDA](https://albumentations.ai/docs/api_reference/augmentations/domain_adaptation/#albumentations.augmentations.domain_adaptation.FDA)
-- [FancyPCA](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.FancyPCA)
-- [FromFloat](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.FromFloat)
-- [GaussNoise](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.GaussNoise)
-- [GaussianBlur](https://albumentations.ai/docs/api_reference/augmentations/blur/transforms/#albumentations.augmentations.blur.transforms.GaussianBlur)
-- [GlassBlur](https://albumentations.ai/docs/api_reference/augmentations/blur/transforms/#albumentations.augmentations.blur.transforms.GlassBlur)
-- [HistogramMatching](https://albumentations.ai/docs/api_reference/augmentations/domain_adaptation/#albumentations.augmentations.domain_adaptation.HistogramMatching)
-- [HueSaturationValue](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.HueSaturationValue)
-- [ISONoise](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.ISONoise)
-- [ImageCompression](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.ImageCompression)
-- [InvertImg](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.InvertImg)
-- [MedianBlur](https://albumentations.ai/docs/api_reference/augmentations/blur/transforms/#albumentations.augmentations.blur.transforms.MedianBlur)
-- [MotionBlur](https://albumentations.ai/docs/api_reference/augmentations/blur/transforms/#albumentations.augmentations.blur.transforms.MotionBlur)
-- [MultiplicativeNoise](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.MultiplicativeNoise)
-- [Normalize](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.Normalize)
-- [PixelDistributionAdaptation](https://albumentations.ai/docs/api_reference/augmentations/domain_adaptation/#albumentations.augmentations.domain_adaptation.PixelDistributionAdaptation)
-- [Posterize](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.Posterize)
-- [RGBShift](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.RGBShift)
-- [RandomBrightnessContrast](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.RandomBrightnessContrast)
-- [RandomFog](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.RandomFog)
-- [RandomGamma](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.RandomGamma)
-- [RandomGravel](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.RandomGravel)
-- [RandomRain](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.RandomRain)
-- [RandomShadow](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.RandomShadow)
-- [RandomSnow](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.RandomSnow)
-- [RandomSunFlare](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.RandomSunFlare)
-- [RandomToneCurve](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.RandomToneCurve)
-- [RingingOvershoot](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.RingingOvershoot)
-- [Sharpen](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.Sharpen)
-- [Solarize](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.Solarize)
-- [Spatter](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.Spatter)
-- [Superpixels](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.Superpixels)
-- [TemplateTransform](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.TemplateTransform)
-- [ToFloat](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.ToFloat)
-- [ToGray](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.ToGray)
-- [ToRGB](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.ToRGB)
-- [ToSepia](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.ToSepia)
-- [UnsharpMask](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.UnsharpMask)
-- [ZoomBlur](https://albumentations.ai/docs/api_reference/augmentations/blur/transforms/#albumentations.augmentations.blur.transforms.ZoomBlur)
-
-### Spatial-level transforms
-
-Spatial-level transforms will simultaneously change both an input image as well as additional targets such as masks, bounding boxes, and keypoints. The following table shows which additional targets are supported by each transform.
-
-| Transform                                                                                                                                                                       | Image | Mask | BBoxes | Keypoints |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :--: | :----: | :-------: |
-| [Affine](https://albumentations.ai/docs/api_reference/augmentations/geometric/transforms/#albumentations.augmentations.geometric.transforms.Affine)                             | ✓     | ✓    | ✓      | ✓         |
-| [BBoxSafeRandomCrop](https://albumentations.ai/docs/api_reference/augmentations/crops/transforms/#albumentations.augmentations.crops.transforms.BBoxSafeRandomCrop)             | ✓     | ✓    | ✓      |           |
-| [CenterCrop](https://albumentations.ai/docs/api_reference/augmentations/crops/transforms/#albumentations.augmentations.crops.transforms.CenterCrop)                             | ✓     | ✓    | ✓      | ✓         |
-| [CoarseDropout](https://albumentations.ai/docs/api_reference/augmentations/dropout/coarse_dropout/#albumentations.augmentations.dropout.coarse_dropout.CoarseDropout)           | ✓     | ✓    |        | ✓         |
-| [Crop](https://albumentations.ai/docs/api_reference/augmentations/crops/transforms/#albumentations.augmentations.crops.transforms.Crop)                                         | ✓     | ✓    | ✓      | ✓         |
-| [CropAndPad](https://albumentations.ai/docs/api_reference/augmentations/crops/transforms/#albumentations.augmentations.crops.transforms.CropAndPad)                             | ✓     | ✓    | ✓      | ✓         |
-| [CropNonEmptyMaskIfExists](https://albumentations.ai/docs/api_reference/augmentations/crops/transforms/#albumentations.augmentations.crops.transforms.CropNonEmptyMaskIfExists) | ✓     | ✓    | ✓      | ✓         |
-| [D4](https://albumentations.ai/docs/api_reference/augmentations/geometric/transforms/#albumentations.augmentations.geometric.transforms.D4)                                     | ✓     | ✓    | ✓      | ✓         |
-| [ElasticTransform](https://albumentations.ai/docs/api_reference/augmentations/geometric/transforms/#albumentations.augmentations.geometric.transforms.ElasticTransform)         | ✓     | ✓    | ✓      |           |
-| [Flip](https://albumentations.ai/docs/api_reference/augmentations/geometric/transforms/#albumentations.augmentations.geometric.transforms.Flip)                                 | ✓     | ✓    | ✓      | ✓         |
-| [GridDistortion](https://albumentations.ai/docs/api_reference/augmentations/geometric/transforms/#albumentations.augmentations.geometric.transforms.GridDistortion)             | ✓     | ✓    | ✓      |           |
-| [GridDropout](https://albumentations.ai/docs/api_reference/augmentations/dropout/grid_dropout/#albumentations.augmentations.dropout.grid_dropout.GridDropout)                   | ✓     | ✓    |        |           |
-| [HorizontalFlip](https://albumentations.ai/docs/api_reference/augmentations/geometric/transforms/#albumentations.augmentations.geometric.transforms.HorizontalFlip)             | ✓     | ✓    | ✓      | ✓         |
-| [Lambda](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.Lambda)                                                 | ✓     | ✓    | ✓      | ✓         |
-| [LongestMaxSize](https://albumentations.ai/docs/api_reference/augmentations/geometric/resize/#albumentations.augmentations.geometric.resize.LongestMaxSize)                     | ✓     | ✓    | ✓      | ✓         |
-| [MaskDropout](https://albumentations.ai/docs/api_reference/augmentations/dropout/mask_dropout/#albumentations.augmentations.dropout.mask_dropout.MaskDropout)                   | ✓     | ✓    |        |           |
-| [Morphological](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.Morphological)                                   | ✓     | ✓    |        |           |
-| [NoOp](https://albumentations.ai/docs/api_reference/core/transforms_interface/#albumentations.core.transforms_interface.NoOp)                                                   | ✓     | ✓    | ✓      | ✓         |
-| [OpticalDistortion](https://albumentations.ai/docs/api_reference/augmentations/geometric/transforms/#albumentations.augmentations.geometric.transforms.OpticalDistortion)       | ✓     | ✓    | ✓      |           |
-| [PadIfNeeded](https://albumentations.ai/docs/api_reference/augmentations/geometric/transforms/#albumentations.augmentations.geometric.transforms.PadIfNeeded)                   | ✓     | ✓    | ✓      | ✓         |
-| [Perspective](https://albumentations.ai/docs/api_reference/augmentations/geometric/transforms/#albumentations.augmentations.geometric.transforms.Perspective)                   | ✓     | ✓    | ✓      | ✓         |
-| [PiecewiseAffine](https://albumentations.ai/docs/api_reference/augmentations/geometric/transforms/#albumentations.augmentations.geometric.transforms.PiecewiseAffine)           | ✓     | ✓    | ✓      | ✓         |
-| [PixelDropout](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.PixelDropout)                                     | ✓     | ✓    |        |           |
-| [RandomCrop](https://albumentations.ai/docs/api_reference/augmentations/crops/transforms/#albumentations.augmentations.crops.transforms.RandomCrop)                             | ✓     | ✓    | ✓      | ✓         |
-| [RandomCropFromBorders](https://albumentations.ai/docs/api_reference/augmentations/crops/transforms/#albumentations.augmentations.crops.transforms.RandomCropFromBorders)       | ✓     | ✓    | ✓      | ✓         |
-| [RandomGridShuffle](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.RandomGridShuffle)                           | ✓     | ✓    |        | ✓         |
-| [RandomResizedCrop](https://albumentations.ai/docs/api_reference/augmentations/crops/transforms/#albumentations.augmentations.crops.transforms.RandomResizedCrop)               | ✓     | ✓    | ✓      | ✓         |
-| [RandomRotate90](https://albumentations.ai/docs/api_reference/augmentations/geometric/rotate/#albumentations.augmentations.geometric.rotate.RandomRotate90)                     | ✓     | ✓    | ✓      | ✓         |
-| [RandomScale](https://albumentations.ai/docs/api_reference/augmentations/geometric/resize/#albumentations.augmentations.geometric.resize.RandomScale)                           | ✓     | ✓    | ✓      | ✓         |
-| [RandomSizedBBoxSafeCrop](https://albumentations.ai/docs/api_reference/augmentations/crops/transforms/#albumentations.augmentations.crops.transforms.RandomSizedBBoxSafeCrop)   | ✓     | ✓    | ✓      |           |
-| [RandomSizedCrop](https://albumentations.ai/docs/api_reference/augmentations/crops/transforms/#albumentations.augmentations.crops.transforms.RandomSizedCrop)                   | ✓     | ✓    | ✓      | ✓         |
-| [Resize](https://albumentations.ai/docs/api_reference/augmentations/geometric/resize/#albumentations.augmentations.geometric.resize.Resize)                                     | ✓     | ✓    | ✓      | ✓         |
-| [Rotate](https://albumentations.ai/docs/api_reference/augmentations/geometric/rotate/#albumentations.augmentations.geometric.rotate.Rotate)                                     | ✓     | ✓    | ✓      | ✓         |
-| [SafeRotate](https://albumentations.ai/docs/api_reference/augmentations/geometric/rotate/#albumentations.augmentations.geometric.rotate.SafeRotate)                             | ✓     | ✓    | ✓      | ✓         |
-| [ShiftScaleRotate](https://albumentations.ai/docs/api_reference/augmentations/geometric/transforms/#albumentations.augmentations.geometric.transforms.ShiftScaleRotate)         | ✓     | ✓    | ✓      | ✓         |
-| [SmallestMaxSize](https://albumentations.ai/docs/api_reference/augmentations/geometric/resize/#albumentations.augmentations.geometric.resize.SmallestMaxSize)                   | ✓     | ✓    | ✓      | ✓         |
-| [Transpose](https://albumentations.ai/docs/api_reference/augmentations/geometric/transforms/#albumentations.augmentations.geometric.transforms.Transpose)                       | ✓     | ✓    | ✓      | ✓         |
-| [VerticalFlip](https://albumentations.ai/docs/api_reference/augmentations/geometric/transforms/#albumentations.augmentations.geometric.transforms.VerticalFlip)                 | ✓     | ✓    | ✓      | ✓         |
-| [XYMasking](https://albumentations.ai/docs/api_reference/augmentations/dropout/xy_masking/#albumentations.augmentations.dropout.xy_masking.XYMasking)                           | ✓     | ✓    |        | ✓         |
-
-### Mixing-level transforms
-
-Transforms that mix several images into one
-
-| Transform                                                                                                                                   | Image | Mask | BBoxes | Keypoints | Global Label |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :--: | :----: | :-------: | :----------: |
-| [MixUp](https://albumentations.ai/docs/api_reference/augmentations/mixing/transforms/#albumentations.augmentations.mixing.transforms.MixUp) | ✓     | ✓    |        |           | ✓            |
-
-## A few more examples of **augmentations**
-
-### Semantic segmentation on the Inria dataset
-
-![inria](https://habrastorage.org/webt/su/wa/np/suwanpeo6ww7wpwtobtrzd_cg20.jpeg)
-
-### Medical imaging
-
-![medical](https://habrastorage.org/webt/1i/fi/wz/1ifiwzy0lxetc4nwjvss-71nkw0.jpeg)
-
-### Object detection and semantic segmentation on the Mapillary Vistas dataset
-
-![vistas](https://habrastorage.org/webt/rz/-h/3j/rz-h3jalbxic8o_fhucxysts4tc.jpeg)
-
-### Keypoints augmentation
-
-<img src="https://habrastorage.org/webt/e-/6k/z-/e-6kz-fugp2heak3jzns3bc-r8o.jpeg" width=100%>
-
-## Benchmarking results
-
-To run the benchmark yourself, follow the instructions in [benchmark/README.md](https://github.com/albumentations-team/albumentations/blob/master/benchmark/README.md)
-
-Results for running the benchmark on the first 2000 images from the ImageNet validation set using an AMD Ryzen Threadripper 3970X CPU.
-The table shows how many images per second can be processed on a single core; higher is better.
-
-| Library | Version |
-|---------|---------|
-| Python | 3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0] |
-| albumentations | 1.4.1 |
-| imgaug | 0.4.0 |
-| torchvision | 0.17.1+rocm5.7 |
-| numpy | 1.26.4 |
-| opencv-python-headless | 4.9.0.80 |
-| scikit-image | 0.22.0 |
-| scipy | 1.12.0 |
-| pillow | 10.2.0 |
-| kornia | 0.7.2 |
-| augly | 1.0.0 |
-
-|                 |albumentations<br><small>1.4.0</small>|torchvision<br><small>0.17.1+rocm5.7</small>|kornia<br><small>0.7.2</small>|augly<br><small>1.0.0</small>|imgaug<br><small>0.4.0</small>|
-|-----------------|--------------------------------------|--------------------------------------------|------------------------------|-----------------------------|------------------------------|
-|HorizontalFlip   |**9843 ± 2135**                       |2436 ± 29                                   |1014 ± 3                      |3663 ± 18                    |4884 ± 51                     |
-|VerticalFlip     |**9898 ± 18**                         |2570 ± 37                                   |1024 ± 4                      |5325 ± 13                    |8683 ± 5                      |
-|Rotate           |610 ± 4                               |153 ± 2                                     |204 ± 1                       |**626 ± 3**                  |499 ± 5                       |
-|Affine           |**1705 ± 67**                         |159 ± 1                                     |200 ± 1                       |-                            |663 ± 24                      |
-|Equalize         |**1061 ± 14**                         |337 ± 1                                     |77 ± 1                        |-                            |845 ± 33                      |
-|RandomCrop64     |**203197 ± 2105**                     |15931 ± 27                                  |837 ± 2                       |21858 ± 362                  |5681 ± 96                     |
-|RandomResizedCrop|**2998 ± 30**                         |1160 ± 4                                    |190 ± 1                       |-                            |-                             |
-|ShiftRGB         |1400 ± 3                              |-                                           |435 ± 1                       |-                            |**1528 ± 6**                  |
-|Resize           |**2581 ± 3**                          |1239 ± 1                                    |197 ± 1                       |431 ± 1                      |1728 ± 1                      |
-|RandomGamma      |**4556 ± 3**                          |230 ± 1                                     |205 ± 1                       |-                            |2282 ± 110                    |
-|Grayscale        |**7234 ± 4**                          |1539 ± 7                                    |444 ± 3                       |2606 ± 2                     |918 ± 42                      |
-|ColorJitter      |**452 ± 43**                          |51 ± 1                                      |50 ± 1                        |221 ± 1                      |-                             |
-|RandomPerspective|**465 ± 1**                           |121 ± 1                                     |115 ± 1                       |-                            |433 ± 16                      |
-|GaussianBlur     |**2315 ± 9**                          |106 ± 2                                     |72 ± 1                        |161 ± 1                      |1213 ± 3                      |
-|MedianBlur       |**3711 ± 2**                          |-                                           |2 ± 1                         |-                            |566 ± 3                       |
-|MotionBlur       |**2763 ± 25**                         |-                                           |101 ± 4                       |-                            |508 ± 2                       |
-|Posterize        |**4238 ± 51**                         |2581 ± 20                                   |284 ± 4                       |-                            |1893 ± 9                      |
-|JpegCompression  |208 ± 1                               |-                                           |-                             |**692 ± 4**                  |435 ± 1                       |
-|GaussianNoise    |64 ± 9                                |-                                           |-                             |67 ± 1                       |**212 ± 16**                  |
-|Elastic          |**129 ± 1**                           |3 ± 1                                       |1 ± 1                         |-                            |128 ± 1                       |
-
-## Contributing
-
-To create a pull request to the repository, follow the documentation at [CONTRIBUTING.md](CONTRIBUTING.md)
-
-![https://github.com/albuemntations-team/albumentation/graphs/contributors](https://contrib.rocks/image?repo=albumentations-team/albumentations)
-
-## Community and Support
-
-- [Twitter](https://twitter.com/albumentations)
-- [Discord](https://discord.gg/AKPrrDYNAt)
-
-## Comments
-
-In some systems, in the multiple GPU regime, PyTorch may deadlock the DataLoader if OpenCV was compiled with OpenCL optimizations. Adding the following two lines before the library import may help. For more details [https://github.com/pytorch/pytorch/issues/1355](https://github.com/pytorch/pytorch/issues/1355)
-
-```python
-cv2.setNumThreads(0)
-cv2.ocl.setUseOpenCL(False)
-```
-
-## Citing
-
-If you find this library useful for your research, please consider citing [Albumentations: Fast and Flexible Image Augmentations](https://www.mdpi.com/2078-2489/11/2/125):
-
-```bibtex
-@Article{info11020125,
-    AUTHOR = {Buslaev, Alexander and Iglovikov, Vladimir I. and Khvedchenya, Eugene and Parinov, Alex and Druzhinin, Mikhail and Kalinin, Alexandr A.},
-    TITLE = {Albumentations: Fast and Flexible Image Augmentations},
-    JOURNAL = {Information},
-    VOLUME = {11},
-    YEAR = {2020},
-    NUMBER = {2},
-    ARTICLE-NUMBER = {125},
-    URL = {https://www.mdpi.com/2078-2489/11/2/125},
-    ISSN = {2078-2489},
-    DOI = {10.3390/info11020125}
+```BibTeX
+@misc{2020mmaction2,
+    title={OpenMMLab's Next Generation Video Understanding Toolbox and Benchmark},
+    author={MMAction2 Contributors},
+    howpublished = {\url{https://github.com/open-mmlab/mmaction2}},
+    year={2020}
 }
 ```
+
+## 🙌 Contributing [🔝](#-table-of-contents)
+
+We appreciate all contributions to improve MMAction2. Please refer to [CONTRIBUTING.md](https://github.com/open-mmlab/mmcv/blob/2.x/CONTRIBUTING.md) in MMCV for more details about the contributing guideline.
+
+## 🤝 Acknowledgement [🔝](#-table-of-contents)
+
+MMAction2 is an open-source project that is contributed by researchers and engineers from various colleges and companies.
+We appreciate all the contributors who implement their methods or add new features and users who give valuable feedback.
+We wish that the toolbox and benchmark could serve the growing research community by providing a flexible toolkit to reimplement existing methods and develop their new models.
+
+## 🏗️ Projects in OpenMMLab [🔝](#-table-of-contents)
+
+- [MMEngine](https://github.com/open-mmlab/mmengine): OpenMMLab foundational library for training deep learning models.
+- [MMCV](https://github.com/open-mmlab/mmcv): OpenMMLab foundational library for computer vision.
+- [MIM](https://github.com/open-mmlab/mim): MIM installs OpenMMLab packages.
+- [MMEval](https://github.com/open-mmlab/mmeval): A unified evaluation library for multiple machine learning libraries.
+- [MMPreTrain](https://github.com/open-mmlab/mmpretrain): OpenMMLab pre-training toolbox and benchmark.
+- [MMDetection](https://github.com/open-mmlab/mmdetection): OpenMMLab detection toolbox and benchmark.
+- [MMDetection3D](https://github.com/open-mmlab/mmdetection3d): OpenMMLab's next-generation platform for general 3D object detection.
+- [MMRotate](https://github.com/open-mmlab/mmrotate): OpenMMLab rotated object detection toolbox and benchmark.
+- [MMYOLO](https://github.com/open-mmlab/mmyolo): OpenMMLab YOLO series toolbox and benchmark.
+- [MMSegmentation](https://github.com/open-mmlab/mmsegmentation): OpenMMLab semantic segmentation toolbox and benchmark.
+- [MMOCR](https://github.com/open-mmlab/mmocr): OpenMMLab text detection, recognition, and understanding toolbox.
+- [MMPose](https://github.com/open-mmlab/mmpose): OpenMMLab pose estimation toolbox and benchmark.
+- [MMHuman3D](https://github.com/open-mmlab/mmhuman3d): OpenMMLab 3D human parametric model toolbox and benchmark.
+- [MMSelfSup](https://github.com/open-mmlab/mmselfsup): OpenMMLab self-supervised learning toolbox and benchmark.
+- [MMRazor](https://github.com/open-mmlab/mmrazor): OpenMMLab model compression toolbox and benchmark.
+- [MMFewShot](https://github.com/open-mmlab/mmfewshot): OpenMMLab fewshot learning toolbox and benchmark.
+- [MMAction2](https://github.com/open-mmlab/mmaction2): OpenMMLab's next-generation action understanding toolbox and benchmark.
+- [MMTracking](https://github.com/open-mmlab/mmtracking): OpenMMLab video perception toolbox and benchmark.
+- [MMFlow](https://github.com/open-mmlab/mmflow): OpenMMLab optical flow toolbox and benchmark.
+- [MMagic](https://github.com/open-mmlab/mmagic): Open**MM**Lab **A**dvanced, **G**enerative and **I**ntelligent **C**reation toolbox.
+- [MMGeneration](https://github.com/open-mmlab/mmgeneration): OpenMMLab image and video generative models toolbox.
+- [MMDeploy](https://github.com/open-mmlab/mmdeploy): OpenMMLab model deployment framework.
+- [Playground](https://github.com/open-mmlab/playground): A central hub for gathering and showcasing amazing projects built upon OpenMMLab.
